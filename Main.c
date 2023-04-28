@@ -2,5 +2,8 @@
 #include <string.h>
 
 int main(){
+    
+    FILE *textfile;
 
+    textfile = fopen();
 }
