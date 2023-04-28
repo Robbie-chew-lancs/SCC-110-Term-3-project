@@ -3,10 +3,10 @@
 
 int main(){
     char FileAddress[255];
-    scanf("%s", &FileAddress)
+    scanf("%s", &FileAddress);
 
 
     FILE *textfile;
 
-    textfile = fopen();
+    textfile = fopen(FileAddress, "r");
 }
