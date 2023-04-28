@@ -2,7 +2,10 @@
 #include <string.h>
 
 int main(){
-    
+    char FileAddress[255];
+    scanf("%s", &FileAddress)
+
+
     FILE *textfile;
 
     textfile = fopen();
