@@ -3,6 +3,7 @@
 
 int main(){
     char FileAddress1[255];
+    printf("File 1:");
     scanf("%s", FileAddress1);
 
 
@@ -11,6 +12,7 @@ int main(){
     textfile = fopen(FileAddress1, "r");
 
     char FileAddress2[255];
+    printf("File 2:");
     scanf("%s", FileAddress2);
 
 
