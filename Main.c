@@ -2,11 +2,20 @@
 #include <string.h>
 
 int main(){
-    char FileAddress[255];
-    scanf("%s", FileAddress);
+    char FileAddress1[255];
+    scanf("%s", FileAddress1);
 
 
     FILE *textfile;
 
     textfile = fopen(FileAddress, "r");
+
+    char FileAddress1[255];
+    scanf("%s", FileAddress2);
+
+
+    FILE *textfile;
+
+    textfile = fopen(FileAddress2, "r");
+
 }
