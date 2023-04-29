@@ -8,9 +8,9 @@ int main(){
 
     FILE *textfile;
 
-    textfile = fopen(FileAddress, "r");
+    textfile = fopen(FileAddress1, "r");
 
-    char FileAddress1[255];
+    char FileAddress2[255];
     scanf("%s", FileAddress2);
 
 
