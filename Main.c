@@ -47,6 +47,53 @@ int main(){
             token = strtok(NULL, space);
         }
     }
-    
+
+    while (fgets(mystring, 100, textFile2)){
+        char* token;
+
+        token = strtok(mystring, space);
+
+        while(token != NULL){
+            printf( " %s\n", token);
+
+            token = strtok(NULL, space);
+        }
+    }
+
+    while (fgets(mystring, 100, textFile3)){
+        char* token;
+
+        token = strtok(mystring, space);
+
+        while(token != NULL){
+            printf( " %s\n", token);
+
+            token = strtok(NULL, space);
+        }
+    }
+
+    while (fgets(mystring, 100, textFile4)){
+        char* token;
+
+        token = strtok(mystring, space);
+
+        while(token != NULL){
+            printf( " %s\n", token);
+
+            token = strtok(NULL, space);
+        }
+    }
+
+    while (fgets(mystring, 100, textFile5)){
+        char* token;
+
+        token = strtok(mystring, space);
+
+        while(token != NULL){
+            printf( " %s\n", token);
+
+            token = strtok(NULL, space);
+        }
+    }
     
 }
