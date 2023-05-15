@@ -27,10 +27,16 @@ int main(){
     FILE *textFile4;
     FILE *textFile5;    
 
-    textFile1 = fopen("./test", "r");
-    textFile2 = fopen("./test", "r");
-    textFile3 = fopen("./test", "r");
-    textFile4 = fopen("./test", "r");
-    textFile5 = fopen("./test", "r");    
+    textFile1 = fopen("./test1", "r");
+    textFile2 = fopen("./test2", "r");
+    textFile3 = fopen("./test3", "r");
+    textFile4 = fopen("./test4", "r");
+    textFile5 = fopen("./test5", "r");    
+
+    char mystring[100];
+    fgets(mystring, 100, textFile1);
+
+    printf("%s", mystring);
+    
     
 }
