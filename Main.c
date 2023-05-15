@@ -27,16 +27,26 @@ int main(){
     FILE *textFile4;
     FILE *textFile5;    
 
-    textFile1 = fopen("./test1", "r");
-    textFile2 = fopen("./test2", "r");
-    textFile3 = fopen("./test3", "r");
-    textFile4 = fopen("./test4", "r");
-    textFile5 = fopen("./test5", "r");    
+    textFile1 = fopen("test1.txt", "r");
+    textFile2 = fopen("test2.txt", "r");
+    textFile3 = fopen("test3.txt", "r");
+    textFile4 = fopen("test4.txt", "r");
+    textFile5 = fopen("test5.txt", "r");    
 
-    char mystring[100];
-    fgets(mystring, 100, textFile1);
+    char mystring[101];
+    char space[2] = " ";
+    
+    while (fgets(mystring, 100, textFile1)){
+        char* token;
 
-    printf("%s", mystring);
+        token = strtok(mystring, space);
+
+        while(token != NULL){
+            printf( " %s\n", token);
+
+            token = strtok(NULL, space);
+        }
+    }
     
     
 }
