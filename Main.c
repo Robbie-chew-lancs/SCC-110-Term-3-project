@@ -51,21 +51,8 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            int i = 0;
-            int j = 0;
-            char filtered[101];// string to hold the punctuationless version of the string
+            printf( " %s\n", token);
 
-            while(token[i] != 0){
-                if(!ispunct(token[i])){
-                    filtered[j] = token[i]; // copy the character to the filtered string
-
-                    j++;//moves the pointer one step down the filtered string. 
-                }
-                i++;
-            }
-            
-            filtered[j] = '\n';
-            printf("%s", filtered);
             token = strtok(NULL, space);
         }
     }
@@ -76,21 +63,8 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            int i = 0;
-            int j = 0;
-            char filtered[101];// string to hold the punctuationless version of the string
+            printf( " %s\n", token);
 
-            while(token[i] != 0){
-                if(!ispunct(token[i])){
-                    filtered[j] = token[i]; // copy the character to the filtered string
-
-                    j++;//moves the pointer one step down the filtered string. 
-                }
-                i++;
-            }
-            
-            filtered[j] = '\n';
-            printf("%s", filtered);
             token = strtok(NULL, space);
         }
     }
@@ -101,21 +75,8 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            int i = 0;
-            int j = 0;
-            char filtered[101];// string to hold the punctuationless version of the string
+            printf( " %s\n", token);
 
-            while(token[i] != 0){
-                if(!ispunct(token[i])){
-                    filtered[j] = token[i]; // copy the character to the filtered string
-
-                    j++;//moves the pointer one step down the filtered string. 
-                }
-                i++;
-            }
-            
-            filtered[j] = '\n';
-            printf("%s", filtered);
             token = strtok(NULL, space);
         }
     }
@@ -126,21 +87,8 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            int i = 0;
-            int j = 0;
-            char filtered[101];// string to hold the punctuationless version of the string
+            printf( " %s\n", token);
 
-            while(token[i] != 0){
-                if(!ispunct(token[i])){
-                    filtered[j] = token[i]; // copy the character to the filtered string
-
-                    j++;//moves the pointer one step down the filtered string. 
-                }
-                i++;
-            }
-            
-            filtered[j] = '\n';
-            printf("%s", filtered);
             token = strtok(NULL, space);
         }
     }
