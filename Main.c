@@ -2,6 +2,9 @@
 #include <string.h>
 #include <ctype.h>
 
+#define MAX_WORDS 1000 // maximum number of words to store
+#define MAX_LEN 100 // maximum length of a word
+
 char *filter(char *mystring)//stolen from stack overflow. I wont pretend that I understand it. 
 {
     char *in = mystring;
@@ -15,14 +18,20 @@ char *filter(char *mystring)//stolen from stack overflow. I wont pretend that I 
     return mystring;
 }
 
+struct word_frequency{
+    char word[MAX_LEN];
+    int frequency;
+};
+
+
 void analyse_file(FILE *textFile){
     char mystring[101];
     char space[2] = " ";
     
     while (fgets(mystring, 100, textFile)){
-        char* token;
+        char* token;//individual word tokens
 
-        token = strtok(mystring, space);
+        token = strtok(mystring, space);// splits the string into tokens, spliting on spaces 
 
         while(token != NULL){
             char* filteredtoken = filter(token);
