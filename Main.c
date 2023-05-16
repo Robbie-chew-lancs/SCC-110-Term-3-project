@@ -15,6 +15,9 @@ char *filter(char *mystring)//stolen from stack overflow. I wont pretend that I 
             *out++ = *in;
     } while (*in++);
 
+    for (int i = 0; mystring[i]; i++) {
+        mystring[i] = tolower(mystring[i]);
+    }
     return mystring;
 }
 
@@ -36,7 +39,8 @@ void analyse_file(FILE *textFile){
         token = strtok(mystring, space);// splits the string into tokens, spliting on spaces 
 
         while(token != NULL){
-            char* filteredtoken = filter(token);
+            char* filteredtoken = filter(token);//removes punctuation
+
             
             printf( " %s\n", filteredtoken);
 
