@@ -2,6 +2,19 @@
 #include <string.h>
 #include <ctype.h>
 
+char *filter(char *mystring)//stolen from stack overflow. I wont pretend that I understand it. 
+{
+    char *in = mystring;
+    char *out = mystring;
+
+    do {
+        if (!ispunct(*in))
+            *out++ = *in;
+    } while (*in++);
+
+    return mystring;
+}
+
 int main(){
 
 
@@ -26,21 +39,10 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            int i = 0;
-            int j = 0;
-            char filtered[101];// string to hold the punctuationless version of the string
+            filteredtoken = filter(token);
 
-            while(token[i] != 0){
-                if(!ispunct(token[i])){
-                    filtered[j] = token[i]; // copy the character to the filtered string
+            printf( " %s\n", filteredtoken);
 
-                    j++;//moves the pointer one step down the filtered string. 
-                }
-                i++;
-            }
-            
-            filtered[j] = '\n';
-            printf("%s", filtered);
             token = strtok(NULL, space);
         }
     }
