@@ -39,7 +39,7 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            filteredtoken = filter(token);
+            char* filteredtoken = filter(token);
 
             printf( " %s\n", filteredtoken);
 
@@ -53,7 +53,9 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            printf( " %s\n", token);
+            char* filteredtoken = filter(token);
+
+            printf( " %s\n", filteredtoken);
 
             token = strtok(NULL, space);
         }
@@ -65,7 +67,9 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            printf( " %s\n", token);
+            char* filteredtoken = filter(token);
+
+            printf( " %s\n", filteredtoken);
 
             token = strtok(NULL, space);
         }
@@ -77,7 +81,9 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            printf( " %s\n", token);
+            char* filteredtoken = filter(token);
+
+            printf( " %s\n", filteredtoken);
 
             token = strtok(NULL, space);
         }
@@ -89,7 +95,9 @@ int main(){
         token = strtok(mystring, space);
 
         while(token != NULL){
-            printf( " %s\n", token);
+            char* filteredtoken = filter(token);
+
+            printf( " %s\n", filteredtoken);
 
             token = strtok(NULL, space);
         }
