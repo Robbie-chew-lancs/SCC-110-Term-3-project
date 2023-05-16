@@ -45,7 +45,6 @@ void analyse_file(FILE *textFile){
 
 int main(){
 
-
     FILE *textFile1;    
     FILE *textFile2;
     FILE *textFile3;
@@ -58,9 +57,6 @@ int main(){
     textFile4 = fopen("test4.txt", "r");
     textFile5 = fopen("test5.txt", "r");    
 
-
-    
-    
     analyse_file(textFile1);
     analyse_file(textFile2);
     analyse_file(textFile3);
