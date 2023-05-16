@@ -1,25 +1,9 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int main(){
-//    char FileAddress1[255];
-//    printf("File 1:");
-//    scanf("%s", FileAddress1);
-//
-//
-//    FILE *textfile;
-//
-//    textfile = fopen(FileAddress1, "r");
-//
-//    char FileAddress2[255];
-//    printf("File 2:");
-//    scanf("%s", FileAddress2);
-//
-//
-//    FILE *textfile;
-//
-//    textfile = fopen(FileAddress2, "r");
-//
+
 
     FILE *textFile1;    
     FILE *textFile2;
