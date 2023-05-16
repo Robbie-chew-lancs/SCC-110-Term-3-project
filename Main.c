@@ -11,7 +11,7 @@ char *filter(char *mystring)//stolen from stack overflow. I wont pretend that I 
     char *out = mystring;
 
     do {
-        if (!ispunct(*in))
+        if (!ispunct(*in) && (*in != '\n'))
             *out++ = *in;
     } while (*in++);
 
@@ -84,10 +84,15 @@ int main(){
     textFile4 = fopen("test4.txt", "r");
     textFile5 = fopen("test5.txt", "r");    
 
-    analyse_file(textFile1);
+    printf("Analysing file1....\n");
+    analyse_file(textFile1);    
+    printf("Analysing file2....\n");
     analyse_file(textFile2);
+    printf("Analysing file3....\n");
     analyse_file(textFile3);
+    printf("Analysing file4....\n");
     analyse_file(textFile4);
+    printf("Analysing file5....\n");
     analyse_file(textFile5);
 }
 
