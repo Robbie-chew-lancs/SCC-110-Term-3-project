@@ -41,8 +41,22 @@ void analyse_file(FILE *textFile){
         while(token != NULL){
             char* filteredtoken = filter(token);//removes punctuation
 
+            int found = 0;
+            for(int i=0; i < numWords; i++){
+                if(strcmp(filteredtoken, wordArray[i].word) ==0){
+                    wordArray[i].frequency++;
+                    found = 1;
+                    break;
+                }
+            }
             
-            printf( " %s\n", filteredtoken);
+            if((found ==0) && (numWords < MAX_WORDS)){
+                strcpy(wordArray[numWords].word, filteredtoken);
+                wordArray[numWords].frequency = 1;
+                numWords++;
+                printf("%s\n", filteredtoken);
+            }
+
 
             token = strtok(NULL, space);
         }
