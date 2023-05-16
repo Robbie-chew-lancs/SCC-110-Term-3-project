@@ -18,7 +18,7 @@ char *filter(char *mystring)//stolen from stack overflow. I wont pretend that I 
     return mystring;
 }
 
-struct word_frequency{
+struct wordFrequency{
     char word[MAX_LEN];
     int frequency;
 };
@@ -27,7 +27,9 @@ struct word_frequency{
 void analyse_file(FILE *textFile){
     char mystring[101];
     char space[2] = " ";
-    
+    struct wordFrequency wordArray[MAX_WORDS];
+    int numWords = 0; 
+
     while (fgets(mystring, 100, textFile)){
         char* token;//individual word tokens
 
@@ -35,7 +37,7 @@ void analyse_file(FILE *textFile){
 
         while(token != NULL){
             char* filteredtoken = filter(token);
-
+            
             printf( " %s\n", filteredtoken);
 
             token = strtok(NULL, space);
