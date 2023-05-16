@@ -54,13 +54,20 @@ void analyse_file(FILE *textFile){
                 strcpy(wordArray[numWords].word, filteredtoken);
                 wordArray[numWords].frequency = 1;
                 numWords++;
-                printf("%s\n", filteredtoken);
+                //printf("%s\n", filteredtoken);
             }
 
 
             token = strtok(NULL, space);
         }
     }
+
+    for(int i = 0; i < numWords; i++){
+        printf("%s  ", wordArray[i].word);
+        printf("Count: %i\n", wordArray[i].frequency);
+
+    }
+
 }
 
 int main(){
