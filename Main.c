@@ -15,6 +15,25 @@ char *filter(char *mystring)//stolen from stack overflow. I wont pretend that I 
     return mystring;
 }
 
+void analyse_file(FILE *textFile){
+    char mystring[101];
+    char space[2] = " ";
+    
+    while (fgets(mystring, 100, textFile)){
+        char* token;
+
+        token = strtok(mystring, space);
+
+        while(token != NULL){
+            char* filteredtoken = filter(token);
+
+            printf( " %s\n", filteredtoken);
+
+            token = strtok(NULL, space);
+        }
+    }
+}
+
 int main(){
 
 
@@ -30,77 +49,13 @@ int main(){
     textFile4 = fopen("test4.txt", "r");
     textFile5 = fopen("test5.txt", "r");    
 
-    char mystring[101];
-    char space[2] = " ";
+
     
-    while (fgets(mystring, 100, textFile1)){
-        char* token;
-
-        token = strtok(mystring, space);
-
-        while(token != NULL){
-            char* filteredtoken = filter(token);
-
-            printf( " %s\n", filteredtoken);
-
-            token = strtok(NULL, space);
-        }
-    }
-
-    while (fgets(mystring, 100, textFile2)){
-        char* token;
-
-        token = strtok(mystring, space);
-
-        while(token != NULL){
-            char* filteredtoken = filter(token);
-
-            printf( " %s\n", filteredtoken);
-
-            token = strtok(NULL, space);
-        }
-    }
-
-    while (fgets(mystring, 100, textFile3)){
-        char* token;
-
-        token = strtok(mystring, space);
-
-        while(token != NULL){
-            char* filteredtoken = filter(token);
-
-            printf( " %s\n", filteredtoken);
-
-            token = strtok(NULL, space);
-        }
-    }
-
-    while (fgets(mystring, 100, textFile4)){
-        char* token;
-
-        token = strtok(mystring, space);
-
-        while(token != NULL){
-            char* filteredtoken = filter(token);
-
-            printf( " %s\n", filteredtoken);
-
-            token = strtok(NULL, space);
-        }
-    }
-
-    while (fgets(mystring, 100, textFile5)){
-        char* token;
-
-        token = strtok(mystring, space);
-
-        while(token != NULL){
-            char* filteredtoken = filter(token);
-
-            printf( " %s\n", filteredtoken);
-
-            token = strtok(NULL, space);
-        }
-    }
     
+    analyse_file(textFile1);
+    analyse_file(textFile2);
+    analyse_file(textFile3);
+    analyse_file(textFile4);
+    analyse_file(textFile5);
 }
+
