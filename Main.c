@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdlib.h>
 
 #define MAX_WORDS 1000 // maximum number of words to store
 #define MAX_LEN 100 // maximum length of a word
@@ -32,15 +33,22 @@ struct wordfrequency{
     int frequency;
 };
 
+
+int frequencycompare(const void *a, const void *b){//dammed c and its no passing structs arround rules
+    struct wordfrequency *word1 = (struct wordfrequency *)a;
+    struct wordfrequency *word2 = (struct wordfrequency *)b;
+    return word2->frequency - word1->frequency;//combined comparison and return 
+}
+
 //analyse the frequency of the words in the file
 //print out each word and its frequency
 void analyse_file(FILE *textfile){
-    char linefragment[101];                   //Buffer for reading a line of text 
+    char linefragment[10001];                   //Buffer for reading a line of text 
     char space[2] = " ";                      //Holds character that split occours on
     struct wordfrequency wordarray[MAX_WORDS];//Array that stores word frequency pairs 
     int numwords = 0; 
 
-    while (fgets(linefragment, 100, textfile)){
+    while (fgets(linefragment, 10000, textfile)){
         char* token;                          //individual word tokens
 
         token = strtok(linefragment, space);  //Splits the string into tokens, spliting on spaces 
@@ -71,12 +79,15 @@ void analyse_file(FILE *textfile){
         }
     }
 
+    qsort(wordarray, numwords, sizeof(struct wordfrequency), frequencycompare);
+
     //Print out each word and its frequency
     for(int i = 0; i < numwords; i++){
         printf("%s  ", wordarray[i].word);
         printf("Count: %i\n", wordarray[i].frequency);
 
     }
+
 
 }
 
