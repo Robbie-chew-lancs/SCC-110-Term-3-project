@@ -5,13 +5,13 @@
 #define MAX_WORDS 1000 // maximum number of words to store
 #define MAX_LEN 100 // maximum length of a word
 
-char *filter(char *mystring)//stolen from stack overflow. I wont pretend that I understand it. 
+char *filter(char *mystring)
 {
     char *in = mystring;
     char *out = mystring;
 
     do {
-        if (!ispunct(*in) && (*in != '\n'))
+        if (!ispunct(*in) && (*in != '\n') && (*in != ' ') && (*in != ' '))
             *out++ = *in;
     } while (*in++);
 
@@ -78,21 +78,23 @@ int main(){
     FILE *textFile4;
     FILE *textFile5;    
 
+
+    //note that this will only work if the files are in the same folder that the program is executed. aditionaly, the names are fixed 
     textFile1 = fopen("test1.txt", "r");
     textFile2 = fopen("test2.txt", "r");
     textFile3 = fopen("test3.txt", "r");
     textFile4 = fopen("test4.txt", "r");
     textFile5 = fopen("test5.txt", "r");    
 
-    printf("Analysing file1....\n");
+    printf("Analysing file 1....\n");
     analyse_file(textFile1);    
-    printf("Analysing file2....\n");
+    printf("Analysing file 2....\n");
     analyse_file(textFile2);
-    printf("Analysing file3....\n");
+    printf("Analysing file 3....\n");
     analyse_file(textFile3);
-    printf("Analysing file4....\n");
+    printf("Analysing file 4....\n");
     analyse_file(textFile4);
-    printf("Analysing file5....\n");
+    printf("Analysing file 5....\n");
     analyse_file(textFile5);
 }
 
