@@ -5,63 +5,73 @@
 #define MAX_WORDS 1000 // maximum number of words to store
 #define MAX_LEN 100 // maximum length of a word
 
+//Filter out Punctuation, newline and whitespace
+//Return pointer to filtered string
 char *filter(char *mystring)
 {
     char *in = mystring;
     char *out = mystring;
 
-    do {
-        if (!ispunct(*in) && (*in != '\n') && (*in != ' ') && (*in != ' '))
+    do {//Remove punctuation and whitespace
+        if (!(ispunct(*in) || (*in == '\n') || (*in == ' ') || (*in == ' ')))
             *out++ = *in;
     } while (*in++);
 
+    
+    //Convert string to lowercase
     for (int i = 0; mystring[i]; i++) {
         mystring[i] = tolower(mystring[i]);
     }
     return mystring;
 }
 
+
+//Struct that stores words and their associated frequencies
 struct wordfrequency{
     char word[MAX_LEN];
     int frequency;
 };
 
-
+//analyse the frequency of the words in the file
+//print out each word and its frequency
 void analyse_file(FILE *textfile){
-    char filedata[101];
-    char space[2] = " ";
-    struct wordfrequency wordarray[MAX_WORDS];
+    char linefragment[101];                   //Buffer for reading a line of text 
+    char space[2] = " ";                      //Holds character that split occours on
+    struct wordfrequency wordarray[MAX_WORDS];//Array that stores word frequency pairs 
     int numwords = 0; 
 
-    while (fgets(filedata, 100, textfile)){
-        char* token;//individual word tokens
+    while (fgets(linefragment, 100, textfile)){
+        char* token;                          //individual word tokens
 
-        token = strtok(filedata, space);// splits the string into tokens, spliting on spaces 
+        token = strtok(linefragment, space);  //Splits the string into tokens, spliting on spaces 
 
         while(token != NULL){
             char* filteredtoken = filter(token);//removes punctuation
 
-            int found = 0;
+            int found = 0; //flag word to check if it is in the array 
             for(int i=0; i < numwords; i++){
-                if(strcmp(filteredtoken, wordarray[i].word) ==0){
-                    wordarray[i].frequency++;
-                    found = 1;
-                    break;
+                if(strcmp(filteredtoken, wordarray[i].word) ==0){//If word in array 
+                    wordarray[i].frequency++;//update frequency count
+                    found = 1;//flag as in array 
+                    break;//exit loop
                 }
             }
-            
+
+
+            //If word is not in the array and there is space left
             if((found ==0) && (numwords < MAX_WORDS)){
-                strcpy(wordarray[numwords].word, filteredtoken);
-                wordarray[numwords].frequency = 1;
-                numwords++;
-                //printf("%s\n", filteredtoken);
+                strcpy(wordarray[numwords].word, filteredtoken);//Copy the word into the array 
+
+                wordarray[numwords].frequency = 1;//Set the frequency to one
+                numwords++;//Update the number of word in the array
             }
 
-
+            //Get next token 
             token = strtok(NULL, space);
         }
     }
 
+    //Print out each word and its frequency
     for(int i = 0; i < numwords; i++){
         printf("%s  ", wordarray[i].word);
         printf("Count: %i\n", wordarray[i].frequency);
@@ -79,7 +89,7 @@ int main(){
     FILE *textfile5;    
 
 
-    //note that this will only work if the files are in the same folder that the program is executed. aditionaly, the names are fixed 
+    //Note that this will only work if the files are in the same folder that the program is executed. Additionally, the names are fixed 
     textfile1 = fopen("test1.txt", "r");
     textfile2 = fopen("test2.txt", "r");
     textfile3 = fopen("test3.txt", "r");
@@ -96,5 +106,7 @@ int main(){
     analyse_file(textfile4);
     printf("Analysing file 5....\n");
     analyse_file(textfile5);
+
+    return 0;
 }
 
