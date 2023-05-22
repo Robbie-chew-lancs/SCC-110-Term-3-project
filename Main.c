@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 
-#define MAX_WORDS 1000 // maximum number of words to store
+#define MAX_WORDS 10000 // maximum number of words to store
 #define MAX_LEN 100 // maximum length of a word
 
 //Filter out Punctuation, newline and whitespace
